@@ -21,6 +21,6 @@ Route::group(['prefix' => 'v1/'], function() {
         Route::get('referrers/{id}', [CastApiController::class, 'getReferrer']);
     });
 });
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); */

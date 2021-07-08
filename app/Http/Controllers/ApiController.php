@@ -43,11 +43,11 @@ class ApiController extends Controller
 
     public function respondForbidden($message = ['Access Denied !'])
     {
-        return $this->setStatusCode(404)->respondWithError($message);
+        return $this->setStatusCode(401)->respondWithError($message);
     }
 
     public function respondInternalError($message = ['Internal Error !'])
     {
-        return $this->setStatusCode(404)->respondWithError($message);
+        return $this->setStatusCode(500)->respondWithError($message);
     }
 }
