@@ -50,4 +50,19 @@ class ApiController extends Controller
     {
         return $this->setStatusCode(500)->respondWithError($message);
     }
+
+    public function requestTimeout($message = ['Request Timeout !'])
+    {
+        return $this->setStatusCode(408)->respondWithError($message);
+    }
+
+    public function respondValidation($message = ['Validation Errors !'])
+    {
+        return $this->setStatusCode(422)->respondWithError($message);
+    }
+
+    public function respondTooManyAttempts($message = ['Too Many Attempts !'])
+    {
+        return $this->setStatusCode(429)->respondWithError($message);
+    }
 }
