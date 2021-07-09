@@ -28,7 +28,7 @@ class CastApiController extends ApiController
             foreach ($validator->errors()->toArray() as $key => $error) {
                 $message[$key] = $error[0];
             }
-            return $this->respondNotFound($message);
+            return $this->respondValidation($message);
         }
 
         $castStatusResponse = $this->getCastStatus();
@@ -77,7 +77,7 @@ class CastApiController extends ApiController
                 $data = [
                     'data' => [
                         'access_token' => $token,
-                        'message' => 'Token generated successfully'
+                        'message' => 'Token is valid for '.config("sanctum.expiration").' minutes',
                     ]
                 ];
 
