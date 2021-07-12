@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'v1/'], function() {
-    Route::post('referrers/token', [CastApiController::class, 'generateToken'])->middleware(['ip.check', 'throttle:10,1']);
+    Route::post('referrers/token', [CastApiController::class, 'generateToken'])->middleware(['ip.check', 'throttle:3,2']);
     Route::group(['middleware' => ['ip.check', 'auth:sanctum', 'throttle:10,1']], function() {
         Route::get('referrers/{id}', [CastApiController::class, 'getReferrer']);
     });
